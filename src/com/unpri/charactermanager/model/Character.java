@@ -1,5 +1,8 @@
 package com.unpri.charactermanager.model;
 
+import java.util.Locale;
+import java.util.Objects;
+
 public class Character {
 
     private String name;
@@ -9,6 +12,8 @@ public class Character {
     private int attack;
     private int mana;
 
+    private static int totalCharacterCreated = 0;
+
     public Character(String name, CharacterType type) {
         this(name, type, 1);
     }
@@ -16,8 +21,9 @@ public class Character {
     public Character(String name, CharacterType type, int level) {
         setName(name);
         setType(type);
-        setLevel(level);
         this.mana = 0;
+        setLevel(level);
+        totalCharacterCreated++;
     }
 
     public String getName() {
@@ -30,7 +36,6 @@ public class Character {
                 "Nama karakter tidak boleh kosong."
             );
         }
-
         this.name = name.trim();
     }
 
@@ -44,8 +49,8 @@ public class Character {
                 "Jenis karakter tidak boleh null."
             );
         }
-
         this.type = type;
+        recalculateStats();
     }
 
     public int getLevel() {
@@ -58,7 +63,6 @@ public class Character {
                 "Level harus minimal 1."
             );
         }
-
         this.level = level;
         recalculateStats();
     }
@@ -73,7 +77,6 @@ public class Character {
                 "Hit points tidak boleh negatif."
             );
         }
-
         this.hitPoints = hitPoints;
     }
 
@@ -87,7 +90,6 @@ public class Character {
                 "Attack tidak boleh negatif."
             );
         }
-
         this.attack = attack;
     }
 
@@ -101,8 +103,11 @@ public class Character {
                 "Mana tidak boleh negatif."
             );
         }
-
         this.mana = mana;
+    }
+
+    public static int getTotalCharacterCreated() {
+        return totalCharacterCreated;
     }
 
     private void recalculateStats() {
@@ -111,22 +116,18 @@ public class Character {
                 hitPoints = 150 + (level - 1) * 20;
                 attack = 20 + (level - 1) * 5;
                 break;
-
             case MAGE:
                 hitPoints = 80 + (level - 1) * 10;
                 attack = 35 + (level - 1) * 7;
                 break;
-
             case ARCHER:
                 hitPoints = 100 + (level - 1) * 15;
                 attack = 25 + (level - 1) * 6;
                 break;
-
             case ASSASSIN:
                 hitPoints = 90 + (level - 1) * 12;
                 attack = 30 + (level - 1) * 8;
                 break;
-
             default:
                 throw new IllegalStateException(
                     "Jenis karakter tidak dikenali."
@@ -140,6 +141,24 @@ public class Character {
 
     public boolean isAlive() {
         return hitPoints > 0;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Character)) {
+            return false;
+        }
+
+        Character other = (Character) obj;
+        return name.equalsIgnoreCase(other.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name.toLowerCase(Locale.ROOT));
     }
 
     @Override
