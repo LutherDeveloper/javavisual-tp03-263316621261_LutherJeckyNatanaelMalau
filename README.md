@@ -1,4 +1,4 @@
-# Character Manager — TP3 & TP5
+# Character Manager — TP3 & TP5 & TP8
 Mata Kuliah: Java Visual
 
 **Nama:** Luther Jecky Natanael Malau  
