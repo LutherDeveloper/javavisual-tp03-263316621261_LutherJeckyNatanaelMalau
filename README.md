@@ -1,39 +1,73 @@
+# Character Manager — TP3 & TP5
+Mata Kuliah: Java Visual (SIH-6406)
 
-# Character Manager — TP3 (Java Visual SIH-6406)
+**Nama:** Luther Jecky Natanael Malau  
+**NIM:** 263316621261
 
-# Deskripsi
-Character Manager adalah project Java yang menerapkan konsep class, object, constructor, encapsulation, dan enum. Project ini dikembangkan dengan menambahkan atribut mana, validasi nilai mana, method isAlive(), serta demonstrasi level up karakter.
+## Deskripsi
 
-# Fitur yang digunakan
+Character Manager adalah project Java yang dikembangkan secara bertahap untuk mempraktikkan class, object, constructor, encapsulation, enum, object reference, dan pengelolaan kumpulan objek.
+
+Pada TP3, project mencakup atribut karakter, validasi mana, `isAlive()`, dan level up. Pada TP5, project dikembangkan dengan fitur pengelolaan karakter menggunakan `CharacterManager`.
+
+## Fitur TP3
+
 - Empat tipe karakter menggunakan enum
-- Dua constructor pada class Character
-- Getter dan setter untuk atribut karakter
+- Constructor, getter, dan setter
+- Validasi nilai mana agar tidak negatif
+- `isAlive()` untuk memeriksa kondisi karakter
 - Level up yang meningkatkan hit points dan attack
-- Validasi agar mana tidak bernilai negatif
-- Method isAlive() untuk memeriksa apakah karakter masih hidup
-- toString() untuk menampilkan informasi karakter
+- `toString()` untuk menampilkan informasi karakter
 
-# Screenshot
+## Fitur TP5
+
+- `addCharacter()` untuk menambah karakter dan menolak nama duplikat
+- `findByName()` untuk mencari karakter berdasarkan nama
+- `removeCharacter()` untuk menghapus karakter
+- `getTotalCharacters()` untuk menghitung jumlah karakter
+- `getAllCharacters()` untuk memberikan salinan daftar karakter
+- `getAverageLevel()` untuk menghitung rata-rata level, termasuk saat daftar kosong
+- `findByType()` untuk mencari karakter berdasarkan tipe
+- `findStrongest()` sebagai fitur tambahan untuk mencari karakter dengan attack tertinggi
+- `equals()` untuk membandingkan karakter berdasarkan nama
+- Eksperimen object reference dan static counter
+
+## Screenshot TP3
+
 ![Character Manager Output](screenshots/character-manager-output.png)
 
-# Struktur Folder
-```
+## Screenshot TP5
+
+### 1. CRUD dan Penolakan Duplikat
+![CRUD dan penolakan duplikat](screenshots/01-crud-duplicate.png)
+
+### 2. Analytics dan Find Strongest
+![Analytics](screenshots/02-analytics.png)
+
+### 3. Object Reference
+![Eksperimen object reference](screenshots/03-object-reference.png)
+
+### 4. Defensive Copy
+![Eksperimen defensive copy](screenshots/04-defensive-copy.png)
+
+## Analisis Google Docs
+
+Dokumen analisis object reference, primitive vs reference, static counter, equals(), dan defensive copy:
+
+[Java Visual TP5 — Dokumen Analisis](https://docs.google.com/document/d/1E0JfsgATnNYDeVj7zkCt0OgDjtFt66PZzHQIvI_jKow/edit?usp=sharing)
+
+## Struktur Folder
+
+```text
 CharacterManager/
 ├── src/
-│   └── com/
-│       └── unpri/
-│           └── charactermanager/
-│               ├── Main.java
-│               └── model/
-│                   ├── Character.java
-│                   └── CharacterType.java
-├── out/
+│   └── com/unpri/charactermanager/
+│       ├── CharacterManager.java
+│       ├── Main.java
+│       └── model/
+│           ├── Character.java
+│           └── CharacterType.java
 ├── screenshots/
-│   └── character-manager-output.png
 ├── README.md
 └── .gitignore
 ```
-
-- Nama: Luther Jecky Natanael Malau
-- NIM: 263316621261
-- Google Docs Analisis: https://docs.google.com/document/d/1E0JfsgATnNYDeVj7zkCt0OgDjtFt66PZzHQIvI_jKow/edit?usp=sharing
