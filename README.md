@@ -36,6 +36,8 @@ Pada TP3, project mencakup atribut karakter, validasi mana, `isAlive()`, dan lev
 
 ![Character Manager Output](screenshots/character-manager-output.png)
 
+## Analisis Google Docs
+
 [Document Analysis TP3](https://docs.google.com/document/d/1E0JfsgATnNYDeVj7zkCt0OgDjtFt66PZzHQIvI_jKow/edit?usp=sharing)
 
 ## Screenshot TP5
@@ -53,8 +55,6 @@ Pada TP3, project mencakup atribut karakter, validasi mana, `isAlive()`, dan lev
 ![Eksperimen defensive copy](screenshots/04-defensive-copy.png)
 
 ## Analisis Google Docs
-
-Dokumen analisis object reference, primitive vs reference, static counter, equals(), dan defensive copy:
 
 [Document Analysis TP5](https://docs.google.com/document/d/1laqV9ykuvLZrTRzMNo4mBxcClv7DFGbQ91m7KJjdqmo/edit?usp=sharing)
 
