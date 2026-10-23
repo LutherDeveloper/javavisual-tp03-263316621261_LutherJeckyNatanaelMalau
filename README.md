@@ -1,5 +1,5 @@
 # Character Manager — TP3 & TP5
-Mata Kuliah: Java Visual (SIH-6406)
+Mata Kuliah: Java Visual
 
 **Nama:** Luther Jecky Natanael Malau  
 **NIM:** 263316621261
