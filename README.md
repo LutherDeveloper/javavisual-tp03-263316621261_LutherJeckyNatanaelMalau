@@ -58,21 +58,6 @@ Pada TP3, project mencakup atribut karakter, validasi mana, `isAlive()`, dan lev
 
 [Document Analysis TP5](https://docs.google.com/document/d/1laqV9ykuvLZrTRzMNo4mBxcClv7DFGbQ91m7KJjdqmo/edit?usp=sharing)
 
-## Struktur Folder
-
-```text
-CharacterManager/
-├── src/
-│   └── com/unpri/charactermanager/
-│       ├── CharacterManager.java
-│       ├── Main.java
-│       └── model/
-│           ├── Character.java
-│           └── CharacterType.java
-├── screenshots/
-├── README.md
-└── .gitignore
-```
 
 ## TP8 — Character Manager Sprint #3: MainWindow, Data Dinamis & Analisis MVC
 
@@ -101,3 +86,4 @@ Alur aplikasi dimulai dari `Main`, yang membuat objek `CharacterManager` dan men
 ### Karakter Baru
 - **Lyra** — ARCHER, level 3. Karakter ini ditambahkan untuk menguji perubahan level dan pembaruan statistik secara langsung.
 - **Darius** — WARRIOR, level 7. Karakter ini menambah variasi level dan tipe karakter untuk menguji tampilan data dinamis.
+
