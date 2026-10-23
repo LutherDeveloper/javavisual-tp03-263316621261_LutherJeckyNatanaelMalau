@@ -35,6 +35,7 @@ Pada TP3, project mencakup atribut karakter, validasi mana, `isAlive()`, dan lev
 ## Screenshot TP3
 
 ![Character Manager Output](screenshots/character-manager-output.png)
+[Document Analysis TP3](https://docs.google.com/document/d/1E0JfsgATnNYDeVj7zkCt0OgDjtFt66PZzHQIvI_jKow/edit?usp=sharing)
 
 ## Screenshot TP5
 
@@ -54,7 +55,7 @@ Pada TP3, project mencakup atribut karakter, validasi mana, `isAlive()`, dan lev
 
 Dokumen analisis object reference, primitive vs reference, static counter, equals(), dan defensive copy:
 
-[Java Visual TP5 — Dokumen Analisis](https://docs.google.com/document/d/1E0JfsgATnNYDeVj7zkCt0OgDjtFt66PZzHQIvI_jKow/edit?usp=sharing)
+[Document Analysis TP5](https://docs.google.com/document/d/1laqV9ykuvLZrTRzMNo4mBxcClv7DFGbQ91m7KJjdqmo/edit?usp=sharing)
 
 ## Struktur Folder
 
