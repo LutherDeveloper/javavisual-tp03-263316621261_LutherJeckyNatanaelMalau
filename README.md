@@ -4,34 +4,6 @@ Mata Kuliah: Java Visual
 **Nama:** Luther Jecky Natanael Malau  
 **NIM:** 263316621261
 
-## Deskripsi
-
-Character Manager adalah project Java yang dikembangkan secara bertahap untuk mempraktikkan class, object, constructor, encapsulation, enum, object reference, dan pengelolaan kumpulan objek.
-
-Pada TP3, project mencakup atribut karakter, validasi mana, `isAlive()`, dan level up. Pada TP5, project dikembangkan dengan fitur pengelolaan karakter menggunakan `CharacterManager`.
-
-## Fitur TP3
-
-- Empat tipe karakter menggunakan enum
-- Constructor, getter, dan setter
-- Validasi nilai mana agar tidak negatif
-- `isAlive()` untuk memeriksa kondisi karakter
-- Level up yang meningkatkan hit points dan attack
-- `toString()` untuk menampilkan informasi karakter
-
-## Fitur TP5
-
-- `addCharacter()` untuk menambah karakter dan menolak nama duplikat
-- `findByName()` untuk mencari karakter berdasarkan nama
-- `removeCharacter()` untuk menghapus karakter
-- `getTotalCharacters()` untuk menghitung jumlah karakter
-- `getAllCharacters()` untuk memberikan salinan daftar karakter
-- `getAverageLevel()` untuk menghitung rata-rata level, termasuk saat daftar kosong
-- `findByType()` untuk mencari karakter berdasarkan tipe
-- `findStrongest()` sebagai fitur tambahan untuk mencari karakter dengan attack tertinggi
-- `equals()` untuk membandingkan karakter berdasarkan nama
-- Eksperimen object reference dan static counter
-
 ## Screenshot TP3
 
 ![Character Manager Output](screenshots/character-manager-output.png)
