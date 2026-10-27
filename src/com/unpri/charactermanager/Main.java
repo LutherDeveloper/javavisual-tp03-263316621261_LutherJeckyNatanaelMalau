@@ -1,6 +1,7 @@
 package com.unpri.charactermanager;
 
 import com.unpri.charactermanager.model.Character;
+import com.unpri.charactermanager.model.CharacterManager;
 import com.unpri.charactermanager.model.CharacterType;
 import com.unpri.charactermanager.view.MainWindow;
 import javax.swing.SwingUtilities;

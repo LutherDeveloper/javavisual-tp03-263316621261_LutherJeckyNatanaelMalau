@@ -1,11 +1,10 @@
 
 package com.unpri.charactermanager.view;
 
-import com.unpri.charactermanager.CharacterManager;
 import com.unpri.charactermanager.model.Character;
-
-import javax.swing.*;
+import com.unpri.charactermanager.model.CharacterManager;
 import java.awt.*;
+import javax.swing.*;
 
 public class MainWindow extends JFrame {
 

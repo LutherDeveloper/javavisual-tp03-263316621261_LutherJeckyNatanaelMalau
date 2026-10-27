@@ -1,7 +1,7 @@
-package com.unpri.charactermanager;
 
-import com.unpri.charactermanager.model.Character;
-import com.unpri.charactermanager.model.CharacterType;
+package com.unpri.charactermanager.model;
+
+// No need to import Character and CharacterType since they are in the same package
 import java.util.ArrayList;
 
 public class CharacterManager {
