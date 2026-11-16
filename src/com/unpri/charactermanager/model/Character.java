@@ -1,4 +1,3 @@
-
 package com.unpri.charactermanager.model;
 
 public class Character {
@@ -49,6 +48,10 @@ public class Character {
         this.level = level;
         this.hitPoints = 100 + (level - 1) * 20;
         this.attack = 10 + (level - 1) * 5;
+    }
+
+    public void levelUp() {
+    setLevel(this.level + 1);
     }
 
     public int getHitPoints() {
