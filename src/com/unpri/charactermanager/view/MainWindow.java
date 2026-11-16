@@ -36,7 +36,6 @@ public class MainWindow extends JFrame {
 
         getContentPane().setBackground(AppTheme.BACKGROUND);
 
-        // NORTH: Header and statistics
         JPanel northPanel = new JPanel();
         northPanel.setLayout(
                 new BoxLayout(northPanel, BoxLayout.Y_AXIS)
@@ -74,7 +73,6 @@ public class MainWindow extends JFrame {
         northPanel.add(headerPanel);
         northPanel.add(Box.createVerticalStrut(12));
 
-        // Additional panel: Statistics using GridLayout 2x2
         JPanel statisticsPanel = new JPanel(
                 new GridLayout(2, 2, 8, 8)
         );
@@ -114,14 +112,12 @@ public class MainWindow extends JFrame {
 
         add(northPanel, BorderLayout.NORTH);
 
-        // CENTER: Character list inside JScrollPane
         characterGrid = new JPanel(
                 new GridLayout(0, 2, 10, 10)
         );
 
         characterGrid.setBackground(AppTheme.BACKGROUND);
 
-        // Wrapper panel for the character grid
         JPanel characterContainer = new JPanel(
                 new BorderLayout()
         );
@@ -156,7 +152,6 @@ public class MainWindow extends JFrame {
 
         add(scroll, BorderLayout.CENTER);
 
-        // EAST: Dynamic role legend
         JPanel legendPanel = new JPanel();
 
         legendPanel.setLayout(
@@ -198,7 +193,6 @@ public class MainWindow extends JFrame {
 
         add(legendPanel, BorderLayout.EAST);
 
-        // SOUTH: Status bar
         JPanel statusPanel = new JPanel(
                 new BorderLayout()
         );
@@ -232,7 +226,6 @@ public class MainWindow extends JFrame {
 
         refreshCharacterList();
 
-        // Fit components to window
         pack();
 
         setMinimumSize(
@@ -242,7 +235,6 @@ public class MainWindow extends JFrame {
         setLocationRelativeTo(null);
     }
 
-    // Statistics component
     private void addStatistic(
             JPanel panel,
             String title,
@@ -276,7 +268,6 @@ public class MainWindow extends JFrame {
         panel.add(statisticCard);
     }
 
-    // Refresh character cards
     private void refreshCharacterList() {
 
         characterGrid.removeAll();
@@ -301,7 +292,6 @@ public class MainWindow extends JFrame {
 
             card.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-            // Name and role
             JLabel nameLabel = new JLabel(
                     character.getName()
                     + " - "
@@ -314,7 +304,6 @@ public class MainWindow extends JFrame {
                     AppTheme.colorFor(character.getType())
             );
 
-            // Level
             JLabel levelLabel = new JLabel(
                     "Level: " + character.getLevel()
             );
@@ -331,7 +320,6 @@ public class MainWindow extends JFrame {
                 levelLabel.setForeground(AppTheme.TEXT_PRIMARY);
             }
 
-            // Statistics
             JLabel statsLabel = new JLabel(
                     String.format(
                             "HP: %d | ATK: %d | Mana: %d",
@@ -344,7 +332,6 @@ public class MainWindow extends JFrame {
             statsLabel.setFont(AppTheme.BODY_FONT);
             statsLabel.setForeground(AppTheme.TEXT_SECONDARY);
 
-            // Tooltip
             String tooltip = String.format(
                     "%s | Role: %s | HP: %d | Attack: %d | Mana: %d",
                     character.getName(),
@@ -365,7 +352,6 @@ public class MainWindow extends JFrame {
             card.add(Box.createVerticalStrut(6));
             card.add(statsLabel);
 
-            // Level 1 disabled
             if (character.getLevel() == 1) {
 
                 card.setEnabled(false);
