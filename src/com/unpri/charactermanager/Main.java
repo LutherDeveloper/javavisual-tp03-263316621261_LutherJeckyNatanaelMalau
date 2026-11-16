@@ -4,7 +4,6 @@ import com.unpri.charactermanager.model.Character;
 import com.unpri.charactermanager.model.CharacterManager;
 import com.unpri.charactermanager.model.CharacterType;
 import com.unpri.charactermanager.view.MainWindow;
-
 import javax.swing.SwingUtilities;
 
 public class Main {
@@ -49,6 +48,18 @@ public class Main {
                     "Lyra",
                     CharacterType.ARCHER,
                     3, 105, 65, 25
+            ));
+
+            manager.addCharacter(new Character(
+                        "Kairo",
+                        CharacterType.ASSASSIN,
+                        4, 120, 85, 40
+            ));
+
+                manager.addCharacter(new Character(
+                        "Nyx",
+                        CharacterType.ASSASSIN,
+                        6, 140, 110, 75
             ));
 
             MainWindow window = new MainWindow(manager);
