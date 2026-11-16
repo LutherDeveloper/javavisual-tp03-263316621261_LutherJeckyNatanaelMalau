@@ -33,7 +33,6 @@ public class MainWindow extends JFrame {
         setLayout(new BorderLayout(10, 10));
         getContentPane().setBackground(AppTheme.BACKGROUND);
 
-        // Header
         JPanel headerPanel = new JPanel();
         headerPanel.setLayout(
                 new BoxLayout(headerPanel, BoxLayout.Y_AXIS)
@@ -60,7 +59,6 @@ public class MainWindow extends JFrame {
 
         add(headerPanel, BorderLayout.NORTH);
 
-        // Character list
         characterListPanel = new JPanel();
         characterListPanel.setLayout(
                 new BoxLayout(characterListPanel, BoxLayout.Y_AXIS)
@@ -78,7 +76,6 @@ public class MainWindow extends JFrame {
 
         add(scrollPane, BorderLayout.CENTER);
 
-        // Footer
         JPanel footerPanel = new JPanel(
                 new FlowLayout(FlowLayout.LEFT, 15, 12)
         );
@@ -137,7 +134,6 @@ public class MainWindow extends JFrame {
 
             boolean isDisabled = character.getLevel() == 1;
 
-            // Character card
             JPanel card = new JPanel();
             card.setLayout(
                     new BoxLayout(card, BoxLayout.Y_AXIS)
@@ -151,7 +147,6 @@ public class MainWindow extends JFrame {
                     character.getType()
             ));
 
-            // Tooltip information
             String tooltip = "<html>"
                     + "<b>Name:</b> " + character.getName() + "<br>"
                     + "<b>Type:</b> " + character.getType() + "<br>"
@@ -162,20 +157,17 @@ public class MainWindow extends JFrame {
 
             card.setToolTipText(tooltip);
 
-            // Character name
             JLabel nameLabel = new JLabel(
                     character.getName() + " - " + character.getType()
             );
             nameLabel.setFont(AppTheme.SUBTITLE_FONT);
 
-            // Role-specific color
             nameLabel.setForeground(
                     isDisabled
                             ? AppTheme.DISABLED
                             : AppTheme.getRoleColor(character.getType())
             );
 
-            // Character level
             JLabel levelLabel = new JLabel(
                     "Level: " + character.getLevel()
             );
@@ -190,7 +182,6 @@ public class MainWindow extends JFrame {
                             : AppTheme.getLevelColor(character.getLevel())
             );
 
-            // Character statistics
             JLabel statsLabel = new JLabel(
                     "HP: " + character.getHitPoints()
                     + " | Attack: " + character.getAttack()
@@ -203,13 +194,11 @@ public class MainWindow extends JFrame {
                             : AppTheme.TEXT_SECONDARY
             );
 
-            // Disable level 1 characters
             card.setEnabled(!isDisabled);
             nameLabel.setEnabled(!isDisabled);
             levelLabel.setEnabled(!isDisabled);
             statsLabel.setEnabled(!isDisabled);
 
-            // Apply tooltip to components
             nameLabel.setToolTipText(tooltip);
             levelLabel.setToolTipText(tooltip);
             statsLabel.setToolTipText(tooltip);
