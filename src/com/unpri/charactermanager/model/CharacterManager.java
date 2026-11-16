@@ -1,12 +1,16 @@
 
 package com.unpri.charactermanager.model;
 
-// No need to import Character and CharacterType since they are in the same package
 import java.util.ArrayList;
+import java.util.List;
 
 public class CharacterManager {
 
-    private final ArrayList<Character> characters = new ArrayList<>();
+    private final List<Character> characters;
+
+    public CharacterManager() {
+        characters = new ArrayList<>();
+    }
 
     public boolean addCharacter(Character character) {
         if (character == null) {
@@ -22,12 +26,13 @@ public class CharacterManager {
     }
 
     public Character findByName(String name) {
-        if (name == null) {
+        if (name == null || name.trim().isEmpty()) {
             return null;
         }
 
         for (Character character : characters) {
-            if (character.getName().equalsIgnoreCase(name.trim())) {
+            if (character.getName() != null &&
+                character.getName().trim().equalsIgnoreCase(name.trim())) {
                 return character;
             }
         }
@@ -42,14 +47,15 @@ public class CharacterManager {
             return false;
         }
 
-        return characters.remove(character);
+        characters.remove(character);
+        return true;
     }
 
     public int getTotalCharacters() {
         return characters.size();
     }
 
-    public ArrayList<Character> getAllCharacters() {
+    public List<Character> getAllCharacters() {
         return new ArrayList<>(characters);
     }
 
@@ -58,17 +64,17 @@ public class CharacterManager {
             return 0.0;
         }
 
-        int total = 0;
+        int totalLevel = 0;
 
         for (Character character : characters) {
-            total += character.getLevel();
+            totalLevel += character.getLevel();
         }
 
-        return (double) total / characters.size();
+        return (double) totalLevel / characters.size();
     }
 
-    public ArrayList<Character> findByType(CharacterType type) {
-        ArrayList<Character> result = new ArrayList<>();
+    public List<Character> findByType(CharacterType type) {
+        List<Character> result = new ArrayList<>();
 
         if (type == null) {
             return result;
