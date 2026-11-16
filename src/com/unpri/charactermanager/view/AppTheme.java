@@ -11,10 +11,8 @@ import javax.swing.border.Border;
 public final class AppTheme {
 
     private AppTheme() {
-        // Prevent object creation
     }
 
-    // Main colors
     public static final Color BACKGROUND =
             new Color(24, 27, 38);
 
@@ -33,7 +31,6 @@ public final class AppTheme {
     public static final Color ACCENT =
             new Color(90, 160, 255);
 
-    // Role colors
     public static final Color WARRIOR_COLOR =
             new Color(220, 75, 75);
 
@@ -46,7 +43,6 @@ public final class AppTheme {
     public static final Color ASSASSIN_COLOR =
             new Color(75, 145, 220);
 
-    // Logical fonts
     public static final Font TITLE_FONT =
             new Font(Font.SANS_SERIF, Font.BOLD, 23);
 
@@ -65,10 +61,8 @@ public final class AppTheme {
     public static final Font SUMMARY_FONT =
             BODY_FONT.deriveFont(Font.BOLD, 16f);
 
-    // Mini-Challenge constant
     public static final int GOLD_LEVEL_THRESHOLD = 5;
 
-    // Borders
     public static final Border WINDOW_PADDING =
             BorderFactory.createEmptyBorder(16, 18, 16, 18);
 
@@ -78,7 +72,6 @@ public final class AppTheme {
     public static final Border SECTION_BORDER =
             BorderFactory.createTitledBorder("Daftar Karakter");
 
-    // Role color mapping
     public static Color colorFor(CharacterType type) {
 
         if (type == null) {
@@ -104,7 +97,6 @@ public final class AppTheme {
         }
     }
 
-    // Role-specific card border
     public static Border borderFor(CharacterType type) {
 
         return BorderFactory.createCompoundBorder(
