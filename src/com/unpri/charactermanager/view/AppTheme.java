@@ -9,27 +9,22 @@ import javax.swing.border.Border;
 public final class AppTheme {
 
     private AppTheme() {
-        // Utility class
     }
 
-    // Background colors
     public static final Color BACKGROUND = new Color(18, 24, 38);
     public static final Color CARD_BACKGROUND = new Color(30, 41, 59);
     public static final Color TEXT_PRIMARY = new Color(241, 245, 249);
     public static final Color TEXT_SECONDARY = new Color(148, 163, 184);
 
-    // Accent colors
     public static final Color ACCENT = new Color(59, 130, 246);
     public static final Color GOLD = new Color(250, 204, 21);
     public static final Color DISABLED = new Color(100, 116, 139);
 
-    // Role colors
     public static final Color WARRIOR_COLOR = new Color(239, 68, 68);
     public static final Color MAGE_COLOR = new Color(168, 85, 247);
     public static final Color ARCHER_COLOR = new Color(34, 197, 94);
     public static final Color ASSASSIN_COLOR = new Color(249, 115, 22);
 
-    // Font styles
     public static final Font TITLE_FONT =
             new Font("Segoe UI", Font.BOLD, 24);
 
@@ -42,7 +37,6 @@ public final class AppTheme {
     public static final Font SMALL_FONT =
             new Font("Segoe UI", Font.PLAIN, 12);
 
-    // Character level threshold
     public static final int HIGH_LEVEL_THRESHOLD = 5;
 
     public static Color getRoleColor(CharacterType type) {
