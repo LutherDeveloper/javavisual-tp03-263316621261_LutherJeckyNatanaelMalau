@@ -52,3 +52,40 @@ Mata Kuliah: Java Visual
 - **Lyra** — ARCHER, level 3. Karakter ini ditambahkan untuk menguji perubahan level dan pembaruan statistik secara langsung.
 - **Darius** — WARRIOR, level 7. Karakter ini menambah variasi level dan tipe karakter untuk menguji tampilan data dinamis.
 
+
+---
+
+## TP10 — Java Visual: Character Manager, Centralized Theme & UI Enhancement
+
+### Bukti Screenshot
+
+**Tampilan Character Manager TP10**
+
+![Character Manager TP10](screenshots/tp10-character-manager.png)
+
+## Analisis Google Docs
+
+[Document Analysis TP10](https://docs.google.com/document/d/1hHdFJI4NjPCaT02qOoBFvs0IjoFJrd-qH5YzpBouclM/edit?usp=sharing)
+
+---
+
+## TP12 — Java Visual: Character Manager, Layout, UI Responsif & Analisis MVC
+
+### Bukti Screenshot
+
+**1. Tampilan Normal**
+
+![TP12 tampilan normal](screenshots/sprint5-normal.png)
+
+**2. Tampilan Maksimal**
+
+![TP12 tampilan maksimal](screenshots/sprint5-maximized.png)
+
+**3. Tampilan Minimum**
+
+![TP12 tampilan minimum](screenshots/sprint5-minimum.png)
+
+## Analisis Google Docs
+
+[Document Analysis TP12](https://docs.google.com/document/d/1vlfgznhgaWmkDvOHN0iz5vWzFeyNl7hTCXjZq8SDJwg/edit?usp=sharing)
+
