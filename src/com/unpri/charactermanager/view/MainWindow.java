@@ -3,6 +3,7 @@ package com.unpri.charactermanager.view;
 import com.unpri.charactermanager.model.Character;
 import com.unpri.charactermanager.model.CharacterManager;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.BorderFactory;
@@ -27,32 +28,31 @@ public class MainWindow extends JFrame {
 
         this.manager = manager;
 
-        setTitle("Character Manager - Sprint #3");
+        setTitle("Character Manager - Sprint #4");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout(10, 10));
+        getContentPane().setBackground(AppTheme.BACKGROUND);
 
+        // Header
         JPanel headerPanel = new JPanel();
         headerPanel.setLayout(
                 new BoxLayout(headerPanel, BoxLayout.Y_AXIS)
         );
-
+        headerPanel.setBackground(AppTheme.BACKGROUND);
+        headerPanel.setOpaque(true);
         headerPanel.setBorder(
                 BorderFactory.createEmptyBorder(20, 20, 10, 20)
         );
 
         JLabel titleLabel = new JLabel("CHARACTER MANAGER");
-
-        titleLabel.setFont(
-                new java.awt.Font("Arial", java.awt.Font.BOLD, 24)
-        );
+        titleLabel.setFont(AppTheme.TITLE_FONT);
+        titleLabel.setForeground(AppTheme.TEXT_PRIMARY);
 
         JLabel subtitleLabel = new JLabel(
-                "Character Collection - Sprint 3"
+                "Character Collection - Sprint 4"
         );
-
-        subtitleLabel.setFont(
-                new java.awt.Font("Arial", java.awt.Font.PLAIN, 13)
-        );
+        subtitleLabel.setFont(AppTheme.SUBTITLE_FONT);
+        subtitleLabel.setForeground(AppTheme.TEXT_SECONDARY);
 
         headerPanel.add(titleLabel);
         headerPanel.add(Box.createVerticalStrut(5));
@@ -60,33 +60,44 @@ public class MainWindow extends JFrame {
 
         add(headerPanel, BorderLayout.NORTH);
 
+        // Character list
         characterListPanel = new JPanel();
-
         characterListPanel.setLayout(
                 new BoxLayout(characterListPanel, BoxLayout.Y_AXIS)
         );
-
+        characterListPanel.setBackground(AppTheme.BACKGROUND);
+        characterListPanel.setOpaque(true);
         characterListPanel.setBorder(
                 BorderFactory.createEmptyBorder(10, 20, 10, 20)
         );
 
         JScrollPane scrollPane = new JScrollPane(characterListPanel);
-
         scrollPane.setPreferredSize(new Dimension(650, 350));
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
+        scrollPane.getViewport().setBackground(AppTheme.BACKGROUND);
 
         add(scrollPane, BorderLayout.CENTER);
 
+        // Footer
         JPanel footerPanel = new JPanel(
                 new FlowLayout(FlowLayout.LEFT, 15, 12)
         );
+        footerPanel.setBackground(AppTheme.CARD_BACKGROUND);
+        footerPanel.setOpaque(true);
 
         averageLevelLabel = new JLabel();
+        averageLevelLabel.setFont(AppTheme.BODY_FONT);
+        averageLevelLabel.setForeground(AppTheme.TEXT_PRIMARY);
 
-        levelUpButton = new JButton(
-                "Naikkan Level Lyra (+1)"
-        );
+        levelUpButton = new JButton("Naikkan Level Lyra (+1)");
+        levelUpButton.setFont(AppTheme.BODY_FONT);
+        levelUpButton.setBackground(AppTheme.ACCENT);
+        levelUpButton.setForeground(Color.WHITE);
+        levelUpButton.setFocusPainted(false);
 
         statusLabel = new JLabel("Ready");
+        statusLabel.setFont(AppTheme.SMALL_FONT);
+        statusLabel.setForeground(AppTheme.TEXT_SECONDARY);
 
         levelUpButton.addActionListener(event -> {
             Character lyra = manager.findByName("Lyra");
@@ -99,7 +110,9 @@ public class MainWindow extends JFrame {
                         "Lyra berhasil naik ke level " + lyra.getLevel()
                 );
             } else {
-                statusLabel.setText("Character Lyra tidak ditemukan");
+                statusLabel.setText(
+                        "Character Lyra tidak ditemukan"
+                );
             }
         });
 
@@ -112,7 +125,6 @@ public class MainWindow extends JFrame {
         refreshCharacterList();
 
         pack();
-
         setMinimumSize(new Dimension(600, 450));
         setLocationRelativeTo(null);
     }
@@ -123,41 +135,84 @@ public class MainWindow extends JFrame {
 
         for (Character character : manager.getAllCharacters()) {
 
-            JPanel card = new JPanel();
+            boolean isDisabled = character.getLevel() == 1;
 
+            // Character card
+            JPanel card = new JPanel();
             card.setLayout(
                     new BoxLayout(card, BoxLayout.Y_AXIS)
             );
 
-            card.setBorder(
-                    BorderFactory.createCompoundBorder(
-                            BorderFactory.createLineBorder(
-                                    java.awt.Color.LIGHT_GRAY
-                            ),
-                            BorderFactory.createEmptyBorder(
-                                    12, 15, 12, 15
-                            )
-                    )
-            );
-
+            card.setBackground(AppTheme.CARD_BACKGROUND);
+            card.setOpaque(true);
             card.setAlignmentX(LEFT_ALIGNMENT);
 
+            card.setBorder(AppTheme.getRoleBorder(
+                    character.getType()
+            ));
+
+            // Tooltip information
+            String tooltip = "<html>"
+                    + "<b>Name:</b> " + character.getName() + "<br>"
+                    + "<b>Type:</b> " + character.getType() + "<br>"
+                    + "<b>Level:</b> " + character.getLevel() + "<br>"
+                    + "<b>HP:</b> " + character.getHitPoints() + "<br>"
+                    + "<b>Attack:</b> " + character.getAttack()
+                    + "</html>";
+
+            card.setToolTipText(tooltip);
+
+            // Character name
             JLabel nameLabel = new JLabel(
                     character.getName() + " - " + character.getType()
             );
+            nameLabel.setFont(AppTheme.SUBTITLE_FONT);
 
-            nameLabel.setFont(
-                    new java.awt.Font("Arial", java.awt.Font.BOLD, 16)
+            // Role-specific color
+            nameLabel.setForeground(
+                    isDisabled
+                            ? AppTheme.DISABLED
+                            : AppTheme.getRoleColor(character.getType())
             );
 
+            // Character level
             JLabel levelLabel = new JLabel(
                     "Level: " + character.getLevel()
             );
 
+            levelLabel.setFont(
+                    AppTheme.getLevelFont(character.getLevel())
+            );
+
+            levelLabel.setForeground(
+                    isDisabled
+                            ? AppTheme.DISABLED
+                            : AppTheme.getLevelColor(character.getLevel())
+            );
+
+            // Character statistics
             JLabel statsLabel = new JLabel(
                     "HP: " + character.getHitPoints()
                     + " | Attack: " + character.getAttack()
             );
+
+            statsLabel.setFont(AppTheme.BODY_FONT);
+            statsLabel.setForeground(
+                    isDisabled
+                            ? AppTheme.DISABLED
+                            : AppTheme.TEXT_SECONDARY
+            );
+
+            // Disable level 1 characters
+            card.setEnabled(!isDisabled);
+            nameLabel.setEnabled(!isDisabled);
+            levelLabel.setEnabled(!isDisabled);
+            statsLabel.setEnabled(!isDisabled);
+
+            // Apply tooltip to components
+            nameLabel.setToolTipText(tooltip);
+            levelLabel.setToolTipText(tooltip);
+            statsLabel.setToolTipText(tooltip);
 
             card.add(nameLabel);
             card.add(Box.createVerticalStrut(5));
@@ -166,7 +221,7 @@ public class MainWindow extends JFrame {
             card.add(statsLabel);
 
             card.setMaximumSize(
-                    new Dimension(Integer.MAX_VALUE, 100)
+                    new Dimension(Integer.MAX_VALUE, 110)
             );
 
             characterListPanel.add(card);
